@@ -9,7 +9,10 @@ RUN npm run build
 # Stage 2: Build the Spring Boot application
 FROM gradle:8.5-jdk21 AS backend-build
 WORKDIR /app # Set the working directory to the root of your entire repository within the container
-COPY --chown=gradle:gradle . /app # Copy the ENTIRE repository content to /app
+
+# IMPORTANT CHANGE HERE: Use an explicit source for COPY, even if it's the current directory.
+# Sometimes, explicitly stating './' instead of just '.' can resolve obscure context issues.
+COPY --chown=gradle:gradle ./ /app # Copy the ENTIRE repository content to /app
 
 # --- CRUCIAL STEP: Copy React build output into Spring Boot's static resources ---
 # Source is /app/ui/build inside frontend-build container
