@@ -10,19 +10,18 @@ RUN npm run build
 FROM gradle:8.5-jdk21 AS backend-build
 WORKDIR /app
 
-# Copy backend code
-COPY animal-welfare-tracker/ ./animal-welfare-tracker/
+# Copy full project (your current folder is the Gradle project root)
+COPY . .
 
-# Copy React build output into Spring Boot's static resources (IMPORTANT)
-COPY --from=frontend-build /app/ui/build/ ./animal-welfare-tracker/src/main/resources/static/
+# Copy built React app into Spring Boot static resources
+COPY --from=frontend-build /app/ui/build ./src/main/resources/static/
 
-# Now build Spring Boot app
-WORKDIR /app/animal-welfare-tracker
+# Build the Spring Boot app
 RUN gradle build -x test
 
 # Stage 3: Runtime
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
-COPY --from=backend-build /app/animal-welfare-tracker/build/libs/*.jar app.jar
+COPY --from=backend-build /app/build/libs/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
