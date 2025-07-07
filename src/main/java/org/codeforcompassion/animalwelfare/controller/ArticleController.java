@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/articles")
-// @CrossOrigin(origins = "http://localhost:3000") // allows the frontend to access
+@CrossOrigin(origins = "*") // allows the frontend to access
 public class ArticleController {
 
     /*private final ArticleService articleService;
