@@ -25,7 +25,7 @@ const FestivalTrendChart = () => {
 
   const fetchFestivalTrends = async (selectedRange) => {
     try {
-      const res = await axios.get(`http://localhost:8080/api/insights/festival-summary?range=${selectedRange}`);
+      const res = await axios.get(`/api/insights/festival-summary?range=${selectedRange}`);
       console.log('Festival summary response:', res.data);
       setData(res.data.data || []);
       setRangeLabel(res.data.rangeLabel || '');

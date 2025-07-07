@@ -22,7 +22,7 @@ const App = () => {
   const loadArticles = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:8080/api/insights/filter', {
+      const res = await axios.get('/api/insights/filter', {
         params: { range, sentiment, location, theme, page, size: 10 },
       });
       setArticles(res.data.content);
@@ -38,7 +38,7 @@ const App = () => {
   const loadSummary = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:8080/api/insights/summary', { params: { range } });
+      const res = await axios.get('/api/insights/summary', { params: { range } });
       setSummary(res.data);
     } catch (e) {
       console.error('Failed to load summary', e);
@@ -50,7 +50,7 @@ const App = () => {
   const triggerFetch = async () => {
     setFetching(true);
     try {
-      await axios.post('http://localhost:8080/api/articles/process');
+      await axios.post('/api/articles/process');
       await loadArticles();
     } catch (err) {
       console.error(err);

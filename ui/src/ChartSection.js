@@ -26,7 +26,7 @@ const ChartSection = () => {
 
   const fetchSummary = async (selectedRange) => {
     try {
-      const res = await axios.get(`http://localhost:8080/api/insights/summary?range=${selectedRange}`);
+      const res = await axios.get(`/api/insights/summary?range=${selectedRange}`);
       console.log("Fetched summary:", res.data);
       setSummary(res.data);
     } catch (err) {

@@ -159,4 +159,9 @@ public class InsightController {
         return response;
     }
 
+    @GetMapping({"/", "/{path:^(?!api|actuator|admin|images|css|js|static|docs|swagger-ui).*$}"})
+    public String forwardToFrontend() {
+        return "forward:/index.html";
+    }
+
 }
