@@ -79,16 +79,6 @@ const App = () => {
       </h1>
       <p>Latest articles on animal rescue, activism, and welfare in India.</p>
 
-      <button
-        onClick={triggerFetch}
-        disabled={fetching}
-        style={{
-          padding: '8px 16px', backgroundColor: '#27ae60', color: 'white',
-          border: 'none', borderRadius: '4px', fontWeight: 'bold', marginBottom: '20px'
-        }}
-      >
-        {fetching ? 'Processing...' : 'Trigger Fetch from Feeds'}
-      </button>
 
       {/* TABS */}
       <div style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}>
