@@ -1,0 +1,39 @@
+# Build and gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IntelliJ / Eclipse / NetBeans / STS
+.idea/
+*.iws
+*.iml
+*.ipr
+.classpath
+.project
+.factorypath
+.settings/
+.springBeans/
+.sts4-cache/
+bin/
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+.apt_generated/
+
+# VS Code
+.vscode/
+
+# React frontend
+/ui/node_modules
+/ui/build/
+
+# Local Google Credentials (critical)
+src/main/resources/google-creds.json
+
+# Temporary files
+*.log
+*.tmp
+*.swp
+.DS_Store
