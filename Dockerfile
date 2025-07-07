@@ -3,19 +3,18 @@
 FROM node:20-alpine AS frontend-build
 
 # Set the working directory inside the container for the frontend project.
-# This WORKDIR is relative to the root of the container's build context.
-# Since your 'ui' folder is at the root of your repo (where Dockerfile is),
-# we'll work directly within the 'ui' folder inside the container.
+# This assumes your 'ui' folder is directly at the root level of your Git repository
+# where the Dockerfile is located.
 WORKDIR /app/ui
 
-# Copy package.json and package-lock.json from the host's 'ui' directory
+# Copy package.json and package-lock.json from your host's 'ui' directory
 # into the current working directory (/app/ui) inside the container.
 COPY ui/package.json ui/package-lock.json ./
 
 # Install Node.js dependencies.
 RUN npm install
 
-# Copy the rest of your React source code from the host's 'ui' directory
+# Copy the rest of your React source code from your host's 'ui' directory
 # into the current working directory (/app/ui) inside the container.
 COPY ui/ ./
 
@@ -26,23 +25,27 @@ RUN npm run build
 # We use a Gradle base image for this stage.
 FROM gradle:8.5-jdk21 AS backend-build
 
-# Set the working directory inside the container for the backend project.
-# This will be the root of your Spring Boot project.
-# Based on your structure, the Spring Boot project is inside 'animal-welfare-tracker/'
-# relative to the Dockerfile.
-WORKDIR /app/animal-welfare-tracker
+# Set the working directory to '/app' for this stage.
+WORKDIR /app
 
-# Copy the entire Spring Boot project from your host machine into this stage.
-# This assumes your Spring Boot project is in 'animal-welfare-tracker/'
-# relative to the Dockerfile.
-COPY --chown=gradle:gradle animal-welfare-tracker/ ./
+# Copy the ENTIRE contents of your repository (where the Dockerfile is)
+# into the '/app' directory inside the container.
+# This ensures that both 'animal-welfare-tracker/' (Spring Boot)
+# and 'ui/' (React) are available under '/app/' in the container.
+COPY --chown=gradle:gradle . /app
 
 # --- CRUCIAL STEP: Copy React build output into Spring Boot's static resources ---
 # This takes the 'build' directory created in the 'frontend-build' stage
 # (which is located at /app/ui/build inside the frontend-build container)
 # and places it into the 'src/main/resources/static' directory
-# within your Spring Boot project's context (/app/animal-welfare-tracker/src/main/resources/static).
-COPY --from=frontend-build /app/ui/build /app/src/main/resources/static
+# within your Spring Boot project's context, which is located at
+# /app/animal-welfare-tracker/src/main/resources/static inside this container.
+COPY --from=frontend-build /app/ui/build /app/animal-welfare-tracker/src/main/resources/static
+
+# Now, change the working directory specifically to your Spring Boot project's root.
+# This is '/app/animal-welfare-tracker/' because you copied the whole repo into /app,
+# and your Spring Boot project is nested within 'animal-welfare-tracker/'.
+WORKDIR /app/animal-welfare-tracker
 
 # Build the Spring Boot application using Gradle.
 # '-x test' skips tests, which can speed up builds in CI/CD.
@@ -56,8 +59,9 @@ FROM eclipse-temurin:21-jdk
 WORKDIR /app
 
 # Copy the built Spring Boot JAR from the 'backend-build' stage into the final image.
-# The JAR will be in '/app/animal-welfare-tracker/build/libs/*.jar' from the backend-build stage.
-COPY --from=backend-build /app/build/libs/*.jar app.jar
+# The JAR will be located at '/app/animal-welfare-tracker/build/libs/*.jar'
+# from the 'backend-build' stage's working directory.
+COPY --from=backend-build /app/animal-welfare-tracker/build/libs/*.jar app.jar
 
 # Expose the port that your Spring Boot application will listen on.
 # This is the internal port. Render will map an external port to this.
