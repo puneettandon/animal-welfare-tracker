@@ -75,7 +75,7 @@ const App = () => {
   return (
     <div style={{ padding: '2rem', fontFamily: 'Segoe UI, sans-serif' }}>
       <h1 style={{ fontSize: '2rem', fontWeight: '700', color: '#2c3e50' }}>
-        Animal Welfare Tracker <span role="img" aria-label="paw">🐾</span>
+        Animal Welfare Sentiment Tracker <span role="img" aria-label="paw">🐾</span>
       </h1>
       <p>Latest articles on animal rescue, activism, and welfare in India.</p>
 
