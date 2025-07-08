@@ -79,6 +79,26 @@ const App = () => {
       </h1>
       <p>Latest articles on animal rescue, activism, and welfare in India.</p>
 
+      <div style={{ margin: '1rem 0' }}>
+        <a
+          href="https://docs.google.com/spreadsheets/d/1tKj5fj7CxLryrtVvToGq2gKTMRhD-3AwYjx-dpX22aE/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#27ae60',
+            color: 'white',
+            fontSize: '15px',
+            borderRadius: '8px',
+            textDecoration: 'none',
+            fontWeight: 'bold',
+            display: 'inline-block',
+            boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
+          }}
+        >
+          📊 View Full Dataset in Google Sheet
+        </a>
+      </div>
 
       {/* TABS */}
       <div style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}>
@@ -248,28 +268,6 @@ const App = () => {
           <FestivalTrendChart />
         </>
       )}
-
-      <div style={{ marginTop: '40px', textAlign: 'center' }}>
-        <a
-          href="https://docs.google.com/spreadsheets/d/1tKj5fj7CxLryrtVvToGq2gKTMRhD-3AwYjx-dpX22aE/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            padding: '10px 20px',
-            backgroundColor: '#27ae60',
-            color: 'white',
-            fontSize: '15px',
-            borderRadius: '8px',
-            textDecoration: 'none',
-            fontWeight: 'bold',
-            display: 'inline-block',
-            boxShadow: '0 2px 6px rgba(0,0,0,0.1)'
-          }}
-        >
-          📊 View Full Dataset in Google Sheet
-        </a>
-      </div>
-
     </div>
   );
 };
