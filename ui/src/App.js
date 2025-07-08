@@ -246,6 +246,24 @@ const App = () => {
         <>
           <ChartSection summary={summary} />
           <FestivalTrendChart />
+          <div style={{ marginTop: '24px', textAlign: 'center' }}>
+            <a href="https://docs.google.com/spreadsheets/d/1tKj5fj7CxLryrtVvToGq2gKTMRhD-3AwYjx-dpX22aE/"
+               target="_blank"
+               rel="noopener noreferrer"
+                style={{
+                    padding: '10px 20px',
+                    backgroundColor: '#2ecc71',
+                    color: 'white',
+                    borderRadius: '6px',
+                    textDecoration: 'none',
+                    fontWeight: 'bold',
+                    display: 'inline-block',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                  }}
+            >
+                📄 View Raw Data in Google Sheet
+            </a>
+          </div>
         </>
       )}
     </div>
