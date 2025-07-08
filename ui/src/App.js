@@ -269,7 +269,6 @@ const App = () => {
           📊 View Full Dataset in Google Sheet
         </a>
       </div>
-      </div>
 
     </div>
   );
