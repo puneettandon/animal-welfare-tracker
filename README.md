@@ -7,7 +7,8 @@ An automated system that monitors Indian news coverage on animal welfare, classi
 - **🌍 Website:** [animal-welfare-tracker-1.onrender.com](https://animal-welfare-tracker-1.onrender.com/)  (As it is running on free instance - 🛑 **Downtime** can be there)
 - **📊 Google Sheet Output:** [View Sheet](https://docs.google.com/spreadsheets/d/1tKj5fj7CxLryrtVvToGq2gKTMRhD-3AwYjx-dpX22aE/)
 - **📽 Presentation Deck:** [View Presentation](https://docs.google.com/presentation/d/16EhPp5aJBEyoi9uRsp-v-d_QpJ02iMGCROCdlF7vkOc/edit?slide=id.p1#slide=id.p1)
-
+- **Video Link:** [View Video](https://drive.google.com/file/d/1_ox0p0g-ysEv2envxd69k4yQQxtBSlB6/view?usp=drive_link)
+  
 ---
 
 ## 🧠 What It Does
