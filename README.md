@@ -4,7 +4,7 @@ An automated system that monitors Indian news coverage on animal welfare, classi
 
 ## 🌐 Live Project
 - **Code4Compassion Project Assign Doc:** [Problem Statement Link](https://docs.google.com/document/d/18ZZxsBfXGeVFaLDdz0Fpawb23oosqmJbKDP6D8flDyE/edit?tab=t.0#heading=h.7cfk6vdyundq) 
-- **🌍 Website:** [animal-welfare-tracker-1.onrender.com](https://animal-welfare-tracker-1.onrender.com/)
+- **🌍 Website:** [animal-welfare-tracker-1.onrender.com](https://animal-welfare-tracker-1.onrender.com/)  (As it is running on free instance - 🛑 **Downtime** can be there)
 - **📊 Google Sheet Output:** [View Sheet](https://docs.google.com/spreadsheets/d/1tKj5fj7CxLryrtVvToGq2gKTMRhD-3AwYjx-dpX22aE/)
 - **📽 Presentation Deck:** [View Presentation](https://docs.google.com/presentation/d/16EhPp5aJBEyoi9uRsp-v-d_QpJ02iMGCROCdlF7vkOc/edit?slide=id.p1#slide=id.p1)
 
@@ -61,4 +61,6 @@ An automated system that monitors Indian news coverage on animal welfare, classi
 
 ## 🙌 Contributions
 This was a solo-built MVP during a time-boxed sprint. Feedback and collaborations are welcome!
+
+## Connect me on **[Linkedin](https://www.linkedin.com/in/puneet-tandon/)** - **Puneet Tandon**
 
